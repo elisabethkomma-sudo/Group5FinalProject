@@ -9,12 +9,20 @@ import UIKit
 
 class NotesViewController: UIViewController {
 
+    @IBOutlet weak var notesTableView: UITableView!
+    
+    
     var listOfNotes: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination.children.first as? AddViewController{
+            vc.noteVC = self
+        }
+    }
     
 
 }
