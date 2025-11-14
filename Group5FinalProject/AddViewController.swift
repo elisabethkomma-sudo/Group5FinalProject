@@ -28,13 +28,12 @@ class AddViewController: UIViewController {
         noteVC?.listOfNotes.append(text)
         noteVC?.notesTableView.reloadData()
         dismiss(animated: true)
+        //if nothing in text box, don't save note and just go back to home
     }
     
     @IBOutlet weak var inputTextField: UITextView!
     
     
-    /*
-     
-     */
+    //if there are any changes in the storyboard you think would help, lmk
 
 }

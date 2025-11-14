@@ -82,7 +82,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tFr-aw-T27">
                                 <rect key="frame" x="40" y="202" width="313" height="610"/>
-                                <color key="backgroundColor" red="0.1176470588" green="0.53333333329999999" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -111,6 +111,12 @@
                                     <action selector="trash:" destination="X5x-GX-OmU" id="Aqp-EZ-tbl"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem systemItem="add" id="Usr-ev-e5S">
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <action selector="addImage:" destination="X5x-GX-OmU" id="jjL-T6-3h6"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="undo" id="wh0-aN-bj1">
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -120,7 +126,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="edittedInputTextField" destination="tFr-aw-T27" id="VYR-ho-f0i"/>
+                        <outlet property="editedInputTextField" destination="tFr-aw-T27" id="VYR-ho-f0i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBk-EC-SGB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -204,7 +210,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a5q-Gt-hqV">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.11764705882352941" green="0.53333333333333333" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                             <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -245,7 +251,7 @@
     </scenes>
     <resources>
         <namedColor name="AccentColor">
-            <color red="0.1764705882352941" green="0.31372549019607843" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.17599999904632568" green="0.31400001049041748" blue="0.65499997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

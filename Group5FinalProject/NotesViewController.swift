@@ -24,6 +24,8 @@ class NotesViewController: UIViewController {
         }
     }
     
+    //maybe it can show when the note was last edited on the footer of the cell?
+    
 
 }
 
