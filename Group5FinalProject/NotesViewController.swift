@@ -34,8 +34,10 @@ extension NotesViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = listOfNotes[indexPath.row]
+        cell.accessoryView = UIImageView(image: UIImage(systemName: "arrow"))
+        
         return cell
     }
     
