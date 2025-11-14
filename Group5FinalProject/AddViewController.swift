@@ -12,6 +12,7 @@ class AddViewController: UIViewController {
     var noteVC : NotesViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
+        inputTextField.layer.cornerRadius = 10
     }
     
     @IBAction func cancel(_ sender: Any) {
