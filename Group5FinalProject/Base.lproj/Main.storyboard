@@ -43,7 +43,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <connections>
-                                            <segue destination="cv9-Ll-bLH" kind="showDetail" id="zSM-EI-4xM"/>
+                                            <segue destination="cv9-Ll-bLH" kind="show" id="zSM-EI-4xM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -60,7 +60,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wfJ-Y3-U13">
                             <color key="tintColor" name="AccentColor"/>
                             <connections>
-                                <segue destination="apA-dl-IbK" kind="showDetail" id="YYg-AL-pBr"/>
+                                <segue destination="apA-dl-IbK" kind="show" id="YYg-AL-pBr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -207,6 +207,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cv9-Ll-bLH" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BKw-T8-bdJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a5q-Gt-hqV">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -230,6 +231,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="apA-dl-IbK" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gwG-ER-rVp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wXk-FO-WD1">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
