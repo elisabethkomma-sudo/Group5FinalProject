@@ -1,6 +1,9 @@
 App Title: Notepad
+
 Purpose: To create an imitation of the notes app.
+
 Group Members: Elisabeth Komma and Ross Knight
+
 Implemented Course Concepts:
 - Table View with data source and delgate
 - Optionals and optional binding
