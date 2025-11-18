@@ -10,9 +10,18 @@ import UIKit
 class EditViewController: UIViewController {
 
     @IBOutlet weak var editedInputTextField: UITextView!
+    
+    var segmentType: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         editedInputTextField.layer.cornerRadius = 10
+        
+        if let segmentType = segmentType, segmentType == 0{
+            overrideUserInterfaceStyle = .light
+        }else{
+            overrideUserInterfaceStyle = .dark
+        }
 
     }
     

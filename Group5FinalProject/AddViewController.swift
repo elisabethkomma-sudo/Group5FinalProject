@@ -10,10 +10,20 @@ import UIKit
 class AddViewController: UIViewController {
 
     var noteVC : NotesViewController?
+    
+    var segmentType: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.layer.cornerRadius = 10
+        
+        if let segmentType = segmentType, segmentType == 0{
+            overrideUserInterfaceStyle = .light
+        }else{
+            overrideUserInterfaceStyle = .dark
+        }
     }
+    
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true)

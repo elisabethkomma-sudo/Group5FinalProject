@@ -11,17 +11,43 @@ class NotesViewController: UIViewController {
 
     @IBOutlet weak var notesTableView: UITableView!
     
+    @IBAction func lightDarkSegment(_ sender: Any) {
+        if let segment = sender as? UISegmentedControl{
+            if segment.selectedSegmentIndex == 0{
+                overrideUserInterfaceStyle = .light
+            }else if segment.selectedSegmentIndex == 1{
+                overrideUserInterfaceStyle = .dark
+            }
+        }
+    }
+    
+    @IBOutlet weak var segmentIndex: UISegmentedControl!
     
     var listOfNotes: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        if segmentIndex.selectedSegmentIndex == 0{
+            overrideUserInterfaceStyle = .light
+        }else if segmentIndex.selectedSegmentIndex == 1{
+            overrideUserInterfaceStyle = .dark
+        }
+        
         
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination.children.first as? AddViewController{
             vc.noteVC = self
+            vc.segmentType = segmentIndex.selectedSegmentIndex
         }
+        
+        if segue.identifier == "editNote"{
+            if let dest = segue.destination as? EditViewController {
+                dest.segmentType = segmentIndex.selectedSegmentIndex
+            }
+        }
+        
+        
     }
     
     //maybe it can show when the note was last edited on the footer of the cell?
