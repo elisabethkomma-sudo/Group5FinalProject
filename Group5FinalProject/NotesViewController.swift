@@ -56,6 +56,25 @@ class NotesViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SavedNote")
+        
+        do {
+            notesList = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Error fetching notes list: \(error)")
+        }
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if segmentIndex.selectedSegmentIndex == 0{
@@ -64,18 +83,6 @@ class NotesViewController: UIViewController {
             overrideUserInterfaceStyle = .dark
         }
     }
-
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination.children.first as? AddViewController{
-            vc.noteVC = self
-            vc.segmentType = segmentIndex.selectedSegmentIndex
-        }
-        if let vc2 = segue.destination.children.first as? EditViewController{
-            vc2.segmentType = segmentIndex.selectedSegmentIndex
-        }
-        
-        
-    }*/
     
     //maybe it can show when the note was last edited on the footer of the cell?
     
@@ -90,7 +97,7 @@ extension NotesViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+            
         let note = notesList[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -114,6 +121,7 @@ extension NotesViewController: UITableViewDelegate {
         vc.noteVC = self
         vc.noteEntity = notesList[indexPath.row]
         vc.segmentType = segmentIndex.selectedSegmentIndex
+        vc.indexPath = indexPath
         
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
