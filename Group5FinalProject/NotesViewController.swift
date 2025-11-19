@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class NotesViewController: UIViewController {
+    
+    var listOfNotes: [String] = []
+    var notesList: [NSManagedObject] = []
+    
 
     @IBOutlet weak var notesTableView: UITableView!
     
@@ -23,7 +28,7 @@ class NotesViewController: UIViewController {
     
     @IBOutlet weak var segmentIndex: UISegmentedControl!
     
-    var listOfNotes: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if segmentIndex.selectedSegmentIndex == 0{

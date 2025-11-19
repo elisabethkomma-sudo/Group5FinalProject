@@ -19,8 +19,10 @@ class AddViewController: UIViewController {
         
         if let segmentType = segmentType, segmentType == 0{
             overrideUserInterfaceStyle = .light
+            inputTextField.tintColor = .white
         }else{
             overrideUserInterfaceStyle = .dark
+            inputTextField.tintColor = .black
         }
     }
     

@@ -19,8 +19,10 @@ class EditViewController: UIViewController {
         
         if let segmentType = segmentType, segmentType == 0{
             overrideUserInterfaceStyle = .light
+            editedInputTextField.tintColor = .white
         }else{
             overrideUserInterfaceStyle = .dark
+            editedInputTextField.tintColor = .black
         }
 
     }
