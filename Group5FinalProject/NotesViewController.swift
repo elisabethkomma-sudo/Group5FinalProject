@@ -83,10 +83,6 @@ class NotesViewController: UIViewController {
             overrideUserInterfaceStyle = .dark
         }
     }
-    
-    //maybe it can show when the note was last edited on the footer of the cell?
-    
-
 }
 
 
@@ -101,9 +97,23 @@ extension NotesViewController: UITableViewDataSource{
         let note = notesList[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = note.value(forKeyPath: "name") as? String
         
+        cell.textLabel?.text = note.value(forKeyPath: "name") as? String
         cell.accessoryView = UIImageView(image: UIImage(named: "arrow"))
+        
+        let date = note.value(forKeyPath: "lastEditTime") as? Date
+        
+        let dateString = date?.formatted(
+            Date.FormatStyle()
+                .year(.defaultDigits)
+                .month(.twoDigits)
+                .day(.twoDigits)
+                .hour(.defaultDigits(amPM: .abbreviated))
+                .minute(.twoDigits)
+        )
+        
+        cell.detailTextLabel?.text = dateString
+        cell.detailTextLabel?.textColor = UIColor.lightText
         
         return cell
     }
