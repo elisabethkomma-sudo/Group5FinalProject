@@ -40,11 +40,8 @@ class NotesViewController: UIViewController {
             vc.noteVC = self
             vc.segmentType = segmentIndex.selectedSegmentIndex
         }
-        
-        if segue.identifier == "editNote"{
-            if let dest = segue.destination as? EditViewController {
-                dest.segmentType = segmentIndex.selectedSegmentIndex
-            }
+        if let vc2 = segue.destination.children.first as? EditViewController{
+            vc2.segmentType = segmentIndex.selectedSegmentIndex
         }
         
         
