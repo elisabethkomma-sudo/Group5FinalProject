@@ -38,6 +38,9 @@ class EditViewController: UIViewController {
             inputTextView.text = text as? String
         }
         
+        // save initial open text as an edit version
+        editVersions.append(inputTextView.text)
+        
         inputTextView.delegate = self
         inputTextView.becomeFirstResponder()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -90,8 +93,8 @@ class EditViewController: UIViewController {
     
     @IBAction func undo(_ sender: Any) {
         
-        if editVersions.count <= 0 {
-            inputTextView.text = ""
+        if editVersions.count <= 1 {
+            inputTextView.text = editVersions[0]
             lastEdit.removeAll()
         } else {
             inputTextView.text = editVersions.removeLast()
@@ -156,7 +159,8 @@ extension EditViewController: UITextViewDelegate {
                 editVersions.append(inputTextView.text)
             } else {
                 // if editVersions has more than 32 edits, cycle out the oldest edit
-                editVersions.removeFirst()
+                //  the first edit in the list is always the initial state that the textView had
+                editVersions.remove(at: 1)
                 editVersions.append(inputTextView.text)
             }
         }
