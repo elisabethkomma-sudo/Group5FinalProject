@@ -13,7 +13,7 @@ Implemented Course Concepts:
 - Error handling and input validation
 - MVC architecture
 - Auto Layout
-- Segues
+- Alerts
 - Type Casting
 
 Description and references for new concepts:
